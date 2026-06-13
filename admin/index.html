@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — CV Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' },
+            dark: { 800:'#1e1e2e',850:'#181825',900:'#11111b',950:'#0a0a12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a12; }
+    ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 3px; }
+    .tab-active { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.5); color: #818cf8; }
+    .tab-btn { background: rgba(30,30,46,0.5); border: 1px solid rgba(75,85,99,0.3); color: #9ca3af; }
+    .tab-btn:hover, .tab-btn.tab-active { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.5); color: #818cf8; }
+    .item-card { background: rgba(30,30,46,0.5); border: 1px solid rgba(75,85,99,0.3); }
+    .item-card:hover { border-color: rgba(99,102,241,0.3); }
+    .toast { transform: translateY(5rem); opacity: 0; transition: all 0.3s; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body class="bg-dark-950 text-gray-200 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-dark-900/80 backdrop-blur-sm border-b border-gray-700/30 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+          <i class="fas fa-cog text-white text-sm"></i>
+        </div>
+        <h1 class="text-lg font-bold">Admin Panel</h1>
+        <span class="text-xs text-gray-500 hidden sm:inline">— CV Portfolio Manager</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="px-3 py-1.5 text-xs bg-dark-800 border border-gray-700/50 rounded-lg text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all">
+          <i class="fas fa-eye mr-1"></i> Preview
+        </a>
+        <button id="btn-download" class="px-4 py-1.5 text-xs bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all">
+          <i class="fas fa-download mr-1"></i> Download JSON
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-2 mb-8" id="tabs">
+      <button class="tab-btn tab-active px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="profile"><i class="fas fa-user mr-1"></i> Profile</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="about"><i class="fas fa-info-circle mr-1"></i> About</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="skills"><i class="fas fa-code mr-1"></i> Skills</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="experience"><i class="fas fa-briefcase mr-1"></i> Experience</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="portfolio"><i class="fas fa-project-diagram mr-1"></i> Portfolio</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="statistics"><i class="fas fa-chart-bar mr-1"></i> Statistics</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="certificates"><i class="fas fa-award mr-1"></i> Certificates</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="testimonials"><i class="fas fa-quote-right mr-1"></i> Testimonials</button>
+      <button class="tab-btn px-4 py-2 rounded-xl text-sm font-medium transition-all" data-tab="contact"><i class="fas fa-envelope mr-1"></i> Contact</button>
+    </div>
+
+    <!-- Tab Panels -->
+    <div id="panel-container">
+
+      <!-- Profile Panel -->
+      <div class="tab-panel" data-panel="profile">
+        <h2 class="text-xl font-bold mb-6">Profile Information</h2>
+        <div class="space-y-4 max-w-2xl">
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Full Name</label><input type="text" data-field="profile.name" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Initials</label><input type="text" data-field="profile.initials" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Title / Position</label><input type="text" data-field="profile.title" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Tagline</label><textarea data-field="profile.tagline" rows="3" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all resize-none"></textarea></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Status Text</label><input type="text" data-field="profile.statusText" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Profile Image Path</label><input type="text" data-field="profile.profileImage" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">About Image Path</label><input type="text" data-field="profile.aboutImage" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">CV File Path</label><input type="text" data-field="profile.cvFile" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Email</label><input type="email" data-field="profile.email" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Phone Number (WhatsApp)</label><input type="text" data-field="profile.phone" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">WhatsApp Link</label><input type="url" data-field="profile.socials.whatsapp" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">GitHub URL</label><input type="url" data-field="profile.socials.github" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">LinkedIn URL</label><input type="url" data-field="profile.socials.linkedin" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Instagram URL</label><input type="url" data-field="profile.socials.instagram" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+        </div>
+      </div>
+
+      <!-- About Panel -->
+      <div class="tab-panel hidden" data-panel="about">
+        <h2 class="text-xl font-bold mb-6">About Section</h2>
+        <div class="space-y-4 max-w-2xl">
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Headline</label><input type="text" data-field="about.headline" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Years Experience</label><input type="number" data-field="about.yearsExperience" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Description (satu paragraf per baris)</label><textarea data-field="about.description" rows="5" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all resize-none"></textarea></div>
+          <h3 class="text-lg font-semibold mt-6 mb-3">Features</h3>
+          <div id="about-features" class="space-y-3"></div>
+          <button onclick="addFeature()" class="px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Feature</button>
+        </div>
+      </div>
+
+      <!-- Skills Panel -->
+      <div class="tab-panel hidden" data-panel="skills">
+        <h2 class="text-xl font-bold mb-6">Skills</h2>
+        <div id="skills-list" class="space-y-4"></div>
+        <button onclick="addSkillCategory()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Category</button>
+      </div>
+
+      <!-- Experience Panel -->
+      <div class="tab-panel hidden" data-panel="experience">
+        <h2 class="text-xl font-bold mb-6">Work Experience</h2>
+        <div id="experience-list" class="space-y-4"></div>
+        <button onclick="addExperience()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Experience</button>
+      </div>
+
+      <!-- Portfolio Panel -->
+      <div class="tab-panel hidden" data-panel="portfolio">
+        <h2 class="text-xl font-bold mb-6">Portfolio Projects</h2>
+        <div id="portfolio-list" class="space-y-4"></div>
+        <button onclick="addProject()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Project</button>
+      </div>
+
+      <!-- Statistics Panel -->
+      <div class="tab-panel hidden" data-panel="statistics">
+        <h2 class="text-xl font-bold mb-6">Statistics</h2>
+        <div id="statistics-list" class="space-y-4"></div>
+        <button onclick="addStat()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Statistic</button>
+      </div>
+
+      <!-- Certificates Panel -->
+      <div class="tab-panel hidden" data-panel="certificates">
+        <h2 class="text-xl font-bold mb-6">Certificates</h2>
+        <div id="certificates-list" class="space-y-4"></div>
+        <button onclick="addCertificate()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Certificate</button>
+      </div>
+
+      <!-- Testimonials Panel -->
+      <div class="tab-panel hidden" data-panel="testimonials">
+        <h2 class="text-xl font-bold mb-6">Testimonials</h2>
+        <div id="testimonials-list" class="space-y-4"></div>
+        <button onclick="addTestimonial()" class="mt-4 px-4 py-2 text-xs bg-dark-800 border border-gray-700/50 rounded-xl text-gray-400 hover:text-primary-400 hover:border-primary-500/50 transition-all"><i class="fas fa-plus mr-1"></i> Add Testimonial</button>
+      </div>
+
+      <!-- Contact Panel -->
+      <div class="tab-panel hidden" data-panel="contact">
+        <h2 class="text-xl font-bold mb-6">Contact Information</h2>
+        <div class="space-y-4 max-w-2xl">
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Headline</label><input type="text" data-field="contact.headline" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Description</label><textarea data-field="contact.description" rows="3" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all resize-none"></textarea></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Email</label><input type="email" data-field="contact.email" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">WhatsApp</label><input type="text" data-field="contact.whatsapp" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">GitHub</label><input type="text" data-field="contact.github" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">LinkedIn</label><input type="text" data-field="contact.linkedin" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+          <div><label class="block text-sm font-medium text-gray-400 mb-1">Instagram</label><input type="text" data-field="contact.instagram" class="w-full px-4 py-2.5 bg-dark-800 border border-gray-700/50 rounded-xl text-gray-200 focus:outline-none focus:border-primary-500/50 transition-all"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast fixed bottom-6 right-6 z-50 px-6 py-4 rounded-xl bg-green-500/90 backdrop-blur-sm text-white font-medium shadow-lg shadow-green-500/20 flex items-center gap-3">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-msg">Saved!</span>
+  </div>
+
+  <script>
+  var data = {};
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(b) { b.classList.remove('tab-active'); });
+      btn.classList.add('tab-active');
+      var tab = btn.getAttribute('data-tab');
+      panels.forEach(function(p) { p.classList.add('hidden'); });
+      document.querySelector('[data-panel="' + tab + '"]').classList.remove('hidden');
+    });
+  });
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2500);
+  }
+
+  function getNestedValue(obj, path) {
+    return path.split('.').reduce(function(o, k) { return o && o[k]; }, obj);
+  }
+
+  function setNestedValue(obj, path, value) {
+    var keys = path.split('.');
+    var last = keys.pop();
+    var target = obj;
+    keys.forEach(function(k) { target = target[k]; });
+    target[last] = value;
+  }
+
+  function loadFormValues() {
+    document.querySelectorAll('[data-field]').forEach(function(el) {
+      var val = getNestedValue(data, el.getAttribute('data-field'));
+      if (val !== undefined && val !== null) {
+        if (Array.isArray(val)) el.value = val.join('\n');
+        else el.value = val;
+      }
+    });
+  }
+
+  function saveFormValues() {
+    document.querySelectorAll('[data-field]').forEach(function(el) {
+      var val = el.value;
+      var field = el.getAttribute('data-field');
+      if (field === 'about.description') {
+        setNestedValue(data, field, val.split('\n').filter(function(l) { return l.trim(); }));
+      } else if (field === 'about.yearsExperience') {
+        setNestedValue(data, field, parseInt(val) || 0);
+      } else {
+        setNestedValue(data, field, val);
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-field]').forEach(function(el) {
+    el.addEventListener('input', function() {
+      saveFormValues();
+    });
+  });
+
+  // --- Dynamic Lists ---
+  function renderAboutFeatures() {
+    var c = document.getElementById('about-features');
+    c.innerHTML = '';
+    (data.about.features || []).forEach(function(f, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4 flex flex-col gap-2">' +
+        '<div class="flex justify-between items-center"><span class="text-xs text-gray-500">Feature ' + (i+1) + '</span>' +
+        '<button onclick="removeFeature(' + i + ')" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i></button></div>' +
+        '<input type="text" value="' + (f.icon||'') + '" onchange="data.about.features[' + i + '].icon=this.value" class="w-full px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Icon (fas fa-...)">' +
+        '<input type="text" value="' + (f.title||'') + '" onchange="data.about.features[' + i + '].title=this.value" class="w-full px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Title">' +
+        '<input type="text" value="' + (f.desc||'') + '" onchange="data.about.features[' + i + '].desc=this.value" class="w-full px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Description"></div>';
+    });
+  }
+  window.addFeature = function() { data.about.features.push({icon:'fas fa-star',title:'New Feature',desc:'Description'}); renderAboutFeatures(); };
+  window.removeFeature = function(i) { data.about.features.splice(i,1); renderAboutFeatures(); };
+
+  function renderSkills() {
+    var c = document.getElementById('skills-list');
+    c.innerHTML = '';
+    (data.skills || []).forEach(function(cat, ci) {
+      var itemsHtml = '';
+      cat.items.forEach(function(s, si) {
+        itemsHtml += '<div class="flex gap-2 items-center">' +
+          '<input type="text" value="' + s.name + '" onchange="data.skills[' + ci + '].items[' + si + '].name=this.value" class="flex-1 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Skill name">' +
+          '<input type="number" min="0" max="100" value="' + s.level + '" onchange="data.skills[' + ci + '].items[' + si + '].level=parseInt(this.value)||0" class="w-20 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="%">' +
+          '<button onclick="data.skills[' + ci + '].items.splice(' + si + ',1);renderSkills()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-times"></i></button></div>';
+      });
+      c.innerHTML += '<div class="item-card rounded-xl p-4">' +
+        '<div class="flex justify-between items-center mb-3">' +
+        '<input type="text" value="' + cat.title + '" onchange="data.skills[' + ci + '].title=this.value" class="bg-transparent text-sm font-semibold focus:outline-none border-b border-transparent focus:border-primary-500/50">' +
+        '<button onclick="data.skills.splice(' + ci + ',1);renderSkills()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
+        '<div class="space-y-2">' + itemsHtml + '</div>' +
+        '<button onclick="data.skills[' + ci + '].items.push({name:\'New Skill\',level:80});renderSkills()" class="mt-2 text-xs text-primary-400 hover:text-primary-300"><i class="fas fa-plus mr-1"></i> Add Skill</button></div>';
+    });
+  }
+  window.addSkillCategory = function() { data.skills.push({title:'New Category',icon:'fas fa-star',items:[{name:'Skill',level:80}]}); renderSkills(); };
+
+  function renderExperience() {
+    var c = document.getElementById('experience-list');
+    c.innerHTML = '';
+    (data.experience || []).forEach(function(e, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4">' +
+        '<div class="flex justify-between items-center mb-3"><span class="text-xs text-gray-500">Experience ' + (i+1) + '</span>' +
+        '<button onclick="data.experience.splice(' + i + ',1);renderExperience()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
+        '<div class="grid sm:grid-cols-2 gap-2">' +
+        '<input type="text" value="' + (e.position||'') + '" onchange="data.experience[' + i + '].position=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Position">' +
+        '<input type="text" value="' + (e.company||'') + '" onchange="data.experience[' + i + '].company=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Company">' +
+        '<input type="text" value="' + (e.period||'') + '" onchange="data.experience[' + i + '].period=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Period">' +
+        '<input type="text" value="' + (e.tech||[]).join(', ') + '" onchange="data.experience[' + i + '].tech=this.value.split(\',\').map(function(s){return s.trim()})" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Tech (comma separated)"></div>' +
+        '<textarea onchange="data.experience[' + i + '].description=this.value" rows="2" class="w-full mt-2 px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50 resize-none" placeholder="Description">' + (e.description||'') + '</textarea></div>';
+    });
+  }
+  window.addExperience = function() { data.experience.push({position:'New Position',company:'Company',period:'2024 — Present',description:'Description',tech:['Tech'],side:'left'}); renderExperience(); };
+
+  function renderPortfolio() {
+    var c = document.getElementById('portfolio-list');
+    c.innerHTML = '';
+    (data.portfolio || []).forEach(function(p, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4">' +
+        '<div class="flex justify-between items-center mb-3"><span class="text-xs text-gray-500">Project ' + (i+1) + '</span>' +
+        '<button onclick="data.portfolio.splice(' + i + ',1);renderPortfolio()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
+        '<div class="grid sm:grid-cols-2 gap-2">' +
+        '<input type="text" value="' + (p.title||'') + '" onchange="data.portfolio[' + i + '].title=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Title">' +
+        '<input type="text" value="' + (p.category||'') + '" onchange="data.portfolio[' + i + '].category=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Category">' +
+        '<input type="text" value="' + (p.image||'') + '" onchange="data.portfolio[' + i + '].image=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Image path">' +
+        '<input type="text" value="' + (p.tech||[]).join(', ') + '" onchange="data.portfolio[' + i + '].tech=this.value.split(\',\').map(function(s){return s.trim()})" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Tech (comma separated)">' +
+        '<input type="url" value="' + (p.demo||'') + '" onchange="data.portfolio[' + i + '].demo=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Demo URL">' +
+        '<input type="url" value="' + (p.github||'') + '" onchange="data.portfolio[' + i + '].github=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="GitHub URL"></div>' +
+        '<textarea onchange="data.portfolio[' + i + '].description=this.value" rows="2" class="w-full mt-2 px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50 resize-none" placeholder="Description">' + (p.description||'') + '</textarea></div>';
+    });
+  }
+  window.addProject = function() { data.portfolio.push({title:'New Project',description:'Description',image:'assets/projects/project.jpg',category:'web',tech:['Tech'],demo:'#',github:'#'}); renderPortfolio(); };
+
+  function renderStatistics() {
+    var c = document.getElementById('statistics-list');
+    c.innerHTML = '';
+    (data.statistics || []).forEach(function(s, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4 flex gap-3 items-end">' +
+        '<div class="flex-1 grid grid-cols-2 gap-2">' +
+        '<input type="text" value="' + (s.icon||'') + '" onchange="data.statistics[' + i + '].icon=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Icon">' +
+        '<input type="number" value="' + (s.target||0) + '" onchange="data.statistics[' + i + '].target=parseInt(this.value)||0" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Target">' +
+        '<input type="text" value="' + (s.label||'') + '" onchange="data.statistics[' + i + '].label=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Label">' +
+        '<input type="text" value="' + (s.suffix||'') + '" onchange="data.statistics[' + i + '].suffix=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Suffix"></div>' +
+        '<button onclick="data.statistics.splice(' + i + ',1);renderStatistics()" class="text-red-400 hover:text-red-300 text-xs px-2"><i class="fas fa-trash"></i></button></div>';
+    });
+  }
+  window.addStat = function() { data.statistics.push({icon:'fas fa-star',target:0,suffix:'+',label:'New Stat'}); renderStatistics(); };
+
+  function renderCertificates() {
+    var c = document.getElementById('certificates-list');
+    c.innerHTML = '';
+    var colors = ['yellow','blue','green','purple','red','orange'];
+    (data.certificates || []).forEach(function(cert, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4">' +
+        '<div class="flex justify-between items-center mb-3"><span class="text-xs text-gray-500">Certificate ' + (i+1) + '</span>' +
+        '<button onclick="data.certificates.splice(' + i + ',1);renderCertificates()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
+        '<div class="grid sm:grid-cols-3 gap-2">' +
+        '<input type="text" value="' + (cert.title||'') + '" onchange="data.certificates[' + i + '].title=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Title">' +
+        '<input type="text" value="' + (cert.issuer||'') + '" onchange="data.certificates[' + i + '].issuer=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Issuer">' +
+        '<div class="flex gap-2"><input type="text" value="' + (cert.year||'') + '" onchange="data.certificates[' + i + '].year=this.value" class="flex-1 px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Year">' +
+        '<select onchange="data.certificates[' + i + '].color=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50">' +
+        colors.map(function(c2){return '<option value="' + c2 + '"' + (cert.color===c2?' selected':'') + '>' + c2 + '</option>';}).join('') +
+        '</select></div></div>' +
+        '<input type="url" value="' + (cert.link||'') + '" onchange="data.certificates[' + i + '].link=this.value" class="w-full mt-2 px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Certificate URL"></div>';
+    });
+  }
+  window.addCertificate = function() { data.certificates.push({title:'New Certificate',issuer:'Issuer',year:'2024',color:'blue',link:'#'}); renderCertificates(); };
+
+  function renderTestimonials() {
+    var c = document.getElementById('testimonials-list');
+    c.innerHTML = '';
+    (data.testimonials || []).forEach(function(t, i) {
+      c.innerHTML += '<div class="item-card rounded-xl p-4">' +
+        '<div class="flex justify-between items-center mb-3"><span class="text-xs text-gray-500">Testimonial ' + (i+1) + '</span>' +
+        '<button onclick="data.testimonials.splice(' + i + ',1);renderTestimonials()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
+        '<div class="grid sm:grid-cols-2 gap-2">' +
+        '<input type="text" value="' + (t.name||'') + '" onchange="data.testimonials[' + i + '].name=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Name">' +
+        '<input type="text" value="' + (t.role||'') + '" onchange="data.testimonials[' + i + '].role=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Role">' +
+        '<input type="text" value="' + (t.image||'') + '" onchange="data.testimonials[' + i + '].image=this.value" class="px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Image path"></div>' +
+        '<textarea onchange="data.testimonials[' + i + '].text=this.value" rows="2" class="w-full mt-2 px-3 py-2 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50 resize-none" placeholder="Testimonial text">' + (t.text||'') + '</textarea></div>';
+    });
+  }
+  window.addTestimonial = function() { data.testimonials.push({name:'Client Name',role:'Position, Company',image:'assets/images/client.jpg',text:'Great work!'}); renderTestimonials(); };
+
+  // --- Download ---
+  document.getElementById('btn-download').addEventListener('click', function() {
+    saveFormValues();
+    var blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'cv-data.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('JSON downloaded! Replace data/cv-data.json in your project.');
+  });
+
+  // --- Init ---
+  fetch('../data/cv-data.json').then(function(r) { return r.json(); }).then(function(d) {
+    data = d;
+    loadFormValues();
+    renderAboutFeatures();
+    renderSkills();
+    renderExperience();
+    renderPortfolio();
+    renderStatistics();
+    renderCertificates();
+    renderTestimonials();
+  }).catch(function(e) {
+    document.getElementById('panel-container').innerHTML = '<div class="text-center py-20 text-gray-500"><i class="fas fa-exclamation-triangle text-4xl mb-4 text-yellow-400"></i><p>Failed to load cv-data.json</p><p class="text-sm mt-2">Make sure you run this via a local server (e.g. <code>php -S localhost:8000</code>)</p></div>';
+  });
+  </script>
+</body>
+</html>
