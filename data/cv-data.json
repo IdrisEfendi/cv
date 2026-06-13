@@ -1,36 +1,36 @@
 {
   "profile": {
-    "name": "John Doe",
-    "initials": "JD",
+    "name": "Idris Efendi",
+    "initials": "IE",
     "title": "Full Stack Developer & Automation Engineer",
     "tagline": "I build efficient, scalable web applications and intelligent automation systems. Passionate about clean code, AI integration, and delivering impactful digital solutions.",
     "statusText": "Available for work",
     "profileImage": "assets/images/profile.jpg",
     "aboutImage": "assets/images/about.jpg",
     "cvFile": "assets/cv/cv.pdf",
-    "email": "john@example.com",
-    "phone": "6281234567890",
-    "whatsapp": "+62 812-3456-7890",
+    "email": "idrisefendi171@gmail.com",
+    "phone": "6285807180219",
+    "whatsapp": "+62 858-0718-0219",
     "socials": {
-      "github": "https://github.com/johndoe",
-      "linkedin": "https://linkedin.com/in/johndoe",
-      "instagram": "https://instagram.com/johndoe",
+      "github": "https://github.com/IdrisEfendi",
+      "linkedin": "https://linkedin.com/in/idrisefendi",
+      "instagram": "https://instagram.com/idrisefendi",
       "whatsapp": "https://wa.me/6281234567890"
     }
   },
   "seo": {
-    "title": "John Doe — Full Stack Developer & Automation Engineer",
-    "description": "Portfolio dan CV John Doe — Full Stack Developer, Automation Engineer, dan AI Enthusiast. Lihat project, skill, dan pengalaman kerja.",
+    "title": "Idris Efendi — Full Stack Developer & Automation Engineer",
+    "description": "Portfolio dan CV Idris Efendi — Full Stack Developer, Automation Engineer, dan AI Enthusiast. Lihat project, skill, dan pengalaman kerja.",
     "ogImage": "assets/images/profile.jpg",
     "jsonLd": {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "John Doe",
+      "name": "Idris Efendi",
       "jobTitle": "Full Stack Developer & Automation Engineer",
       "sameAs": [
-        "https://github.com/johndoe",
-        "https://linkedin.com/in/johndoe",
-        "https://instagram.com/johndoe"
+        "https://github.com/idrisefendi",
+        "https://linkedin.com/in/idrisefendi",
+        "https://instagram.com/idrisefendi"
       ],
       "knowsAbout": ["PHP", "Laravel", "Python", "JavaScript", "MySQL", "Docker"]
     }
@@ -232,9 +232,9 @@
     "description": "Have a project in mind or want to discuss an opportunity? I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.",
     "email": "john@example.com",
     "whatsapp": "+62 812-3456-7890",
-    "github": "github.com/johndoe",
-    "linkedin": "linkedin.com/in/johndoe",
-    "instagram": "@johndoe"
+    "github": "github.com/idrisefendi",
+    "linkedin": "linkedin.com/in/idrisefendi",
+    "instagram": "@idrisefendi"
   },
   "footer": {
     "tagline": "Full Stack Developer & Automation Engineer building efficient digital solutions.",
