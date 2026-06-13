@@ -5,8 +5,8 @@
     "title": "Full Stack Developer & Automation Engineer",
     "tagline": "I build efficient, scalable web applications and intelligent automation systems. Passionate about clean code, AI integration, and delivering impactful digital solutions.",
     "statusText": "Available for work",
-    "profileImage": "assets/images/profile.jpg",
-    "aboutImage": "assets/images/about.jpg",
+    "profileImage": "assets/images/profile.svg",
+    "aboutImage": "assets/images/about.svg",
     "cvFile": "assets/cv/cv.pdf",
     "email": "idrisefendi171@gmail.com",
     "phone": "6285807180219",
@@ -141,7 +141,7 @@
     {
       "title": "E-Commerce Platform",
       "description": "Full-featured e-commerce with payment gateway, admin dashboard, and real-time inventory management.",
-      "image": "assets/projects/project1.jpg",
+      "image": "assets/projects/project1.svg",
       "category": "web",
       "tech": ["Laravel", "Vue.js", "MySQL"],
       "demo": "#",
@@ -150,7 +150,7 @@
     {
       "title": "AI Customer Service Bot",
       "description": "Intelligent chatbot using OpenAI API with context memory, multi-language support, and sentiment analysis.",
-      "image": "assets/projects/project2.jpg",
+      "image": "assets/projects/project2.svg",
       "category": "ai",
       "tech": ["Python", "OpenAI", "FastAPI"],
       "demo": "#",
@@ -159,7 +159,7 @@
     {
       "title": "Automated Web Scraper",
       "description": "Multi-source data scraping tool with scheduled runs, data cleaning pipeline, and export to CSV/JSON.",
-      "image": "assets/projects/project3.jpg",
+      "image": "assets/projects/project3.svg",
       "category": "automation",
       "tech": ["Python", "Selenium", "PostgreSQL"],
       "demo": "#",
@@ -168,7 +168,7 @@
     {
       "title": "Analytics Dashboard",
       "description": "Real-time analytics dashboard with interactive charts, data filtering, and automated report generation.",
-      "image": "assets/projects/project4.jpg",
+      "image": "assets/projects/project4.svg",
       "category": "web",
       "tech": ["Laravel", "Chart.js", "Redis"],
       "demo": "#",
@@ -177,7 +177,7 @@
     {
       "title": "RESTful API Service",
       "description": "Scalable API microservice with JWT auth, rate limiting, caching, and comprehensive Swagger documentation.",
-      "image": "assets/projects/project5.jpg",
+      "image": "assets/projects/project5.svg",
       "category": "backend",
       "tech": ["Laravel", "MySQL", "Docker"],
       "demo": "#",
@@ -186,7 +186,7 @@
     {
       "title": "This Portfolio Website",
       "description": "Modern, responsive portfolio built with vanilla HTML/CSS/JS and Tailwind CSS. Zero dependencies, instant load.",
-      "image": "assets/projects/project6.jpg",
+      "image": "assets/projects/project6.svg",
       "category": "personal",
       "tech": ["HTML5", "Tailwind", "JavaScript"],
       "demo": "#",
@@ -211,19 +211,19 @@
     {
       "name": "Sarah Johnson",
       "role": "CEO, TechStart Inc.",
-      "image": "assets/images/client1.jpg",
+      "image": "assets/images/client1.svg",
       "text": "John delivered our e-commerce platform ahead of schedule. His attention to detail and technical skills are outstanding. Highly recommended for any web development project."
     },
     {
       "name": "Michael Chen",
       "role": "CTO, DataFlow Systems",
-      "image": "assets/images/client2.jpg",
+      "image": "assets/images/client2.svg",
       "text": "Working with John was a great experience. He built an AI chatbot that handles 80% of our customer inquiries. His automation skills saved us countless hours."
     },
     {
       "name": "Emily Rodriguez",
       "role": "Product Manager, AppWorks",
-      "image": "assets/images/client3.jpg",
+      "image": "assets/images/client3.svg",
       "text": "John's API development is top-notch. Clean code, excellent documentation, and reliable performance. He's become our go-to developer for backend work."
     }
   ],

@@ -231,7 +231,7 @@
     slideInterval = setInterval(nextSlide, 5000);
   }
 
-  // ---- Contact Form ----
+  // ---- Contact Form (Web3Forms) ----
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
@@ -239,18 +239,46 @@
       var name = document.getElementById('name').value.trim();
       var email = document.getElementById('email').value.trim();
       var message = document.getElementById('message').value.trim();
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
 
       if (!name || !email || !message) {
         showToast('Mohon isi semua field yang wajib diisi.');
         return;
       }
 
-      var subject = document.getElementById('subject').value || 'Portfolio Contact';
-      var body = 'Hi,%0D%0A%0D%0AName: ' + name + '%0AEmail: ' + email + '%0A%0A' + message;
-      window.location.href = 'mailto:john@example.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+      // Check if Web3Forms key is configured
+      var accessKey = contactForm.querySelector('input[name="access_key"]').value;
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+        // Fallback: open email client
+        var subject = document.getElementById('subject').value || 'Portfolio Contact';
+        var body = 'Hi,%0D%0A%0D%0AName: ' + name + '%0AEmail: ' + email + '%0A%0A' + message;
+        window.location.href = 'mailto:idrisefendi171@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+        contactForm.reset();
+        showToast('Membuka email client...');
+        return;
+      }
 
-      contactForm.reset();
-      showToast('Pesan berhasil dikirim! Terima kasih, ' + name + '.');
+      // Submit via Web3Forms API
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      var formData = new FormData(contactForm);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (res.success) {
+          contactForm.reset();
+          showToast('Pesan berhasil dikirim! Terima kasih, ' + name + '.');
+        } else {
+          showToast('Gagal mengirim. Silakan coba lagi.');
+        }
+      }).catch(function () {
+        showToast('Error jaringan. Silakan coba lagi.');
+      }).finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      });
     });
   }
 

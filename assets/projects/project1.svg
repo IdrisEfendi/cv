@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2e"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  <rect x="60" y="60" width="680" height="360" rx="16" fill="#0a0a12" opacity="0.5"/>
+  <rect x="60" y="60" width="680" height="40" rx="16" fill="#1e1e2e"/>
+  <circle cx="90" cy="80" r="6" fill="#ef4444" opacity="0.7"/>
+  <circle cx="110" cy="80" r="6" fill="#eab308" opacity="0.7"/>
+  <circle cx="130" cy="80" r="6" fill="#22c55e" opacity="0.7"/>
+  <text x="400" y="220" font-family="monospace" font-size="14" fill="#6366f1" text-anchor="middle" opacity="0.5">&lt;div class="shop"&gt;</text>
+  <text x="400" y="245" font-family="monospace" font-size="14" fill="#818cf8" text-anchor="middle" opacity="0.4">&nbsp;&nbsp;{ products.map(p =&gt; }</text>
+  <text x="400" y="270" font-family="monospace" font-size="14" fill="#a5b4fc" text-anchor="middle" opacity="0.3">&nbsp;&nbsp;&nbsp;&nbsp;&lt;Card /&gt;</text>
+  <text x="400" y="295" font-family="monospace" font-size="14" fill="#818cf8" text-anchor="middle" opacity="0.4">&nbsp;&nbsp;)}</text>
+  <text x="400" y="320" font-family="monospace" font-size="14" fill="#6366f1" text-anchor="middle" opacity="0.5">&lt;/div&gt;</text>
+  <text x="400" y="410" font-family="system-ui,sans-serif" font-size="22" fill="#e2e8f0" font-weight="600" text-anchor="middle">E-Commerce Platform</text>
+</svg>
