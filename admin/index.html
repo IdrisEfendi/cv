@@ -279,8 +279,10 @@
       var itemsHtml = '';
       cat.items.forEach(function(s, si) {
         itemsHtml += '<div class="flex gap-2 items-center">' +
-          '<input type="text" value="' + s.name + '" onchange="data.skills[' + ci + '].items[' + si + '].name=this.value" class="flex-1 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Skill name">' +
-          '<input type="number" min="0" max="100" value="' + s.level + '" onchange="data.skills[' + ci + '].items[' + si + '].level=parseInt(this.value)||0" class="w-20 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="%">' +
+          '<input type="text" value="' + (s.icon||'') + '" onchange="data.skills[' + ci + '].items[' + si + '].icon=this.value" class="w-28 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Icon (fas/fa)">' +
+          '<input type="text" value="' + (s.name||'') + '" onchange="data.skills[' + ci + '].items[' + si + '].name=this.value" class="flex-1 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Skill name">' +
+          '<input type="number" min="0" max="100" value="' + s.level + '" onchange="data.skills[' + ci + '].items[' + si + '].level=parseInt(this.value)||0" class="w-16 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="%">' +
+          '<input type="text" value="' + (s.color||'') + '" onchange="data.skills[' + ci + '].items[' + si + '].color=this.value" class="w-20 px-3 py-1.5 bg-dark-950/50 border border-gray-700/50 rounded-lg text-sm text-gray-200 focus:outline-none focus:border-primary-500/50" placeholder="Color">' +
           '<button onclick="data.skills[' + ci + '].items.splice(' + si + ',1);renderSkills()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-times"></i></button></div>';
       });
       c.innerHTML += '<div class="item-card rounded-xl p-4">' +
@@ -288,10 +290,10 @@
         '<input type="text" value="' + cat.title + '" onchange="data.skills[' + ci + '].title=this.value" class="bg-transparent text-sm font-semibold focus:outline-none border-b border-transparent focus:border-primary-500/50">' +
         '<button onclick="data.skills.splice(' + ci + ',1);renderSkills()" class="text-red-400 hover:text-red-300 text-xs"><i class="fas fa-trash"></i> Delete</button></div>' +
         '<div class="space-y-2">' + itemsHtml + '</div>' +
-        '<button onclick="data.skills[' + ci + '].items.push({name:\'New Skill\',level:80});renderSkills()" class="mt-2 text-xs text-primary-400 hover:text-primary-300"><i class="fas fa-plus mr-1"></i> Add Skill</button></div>';
+        '<button onclick="data.skills[' + ci + '].items.push({name:\'New Skill\',level:80,icon:\'fas fa-star\',color:\'#818cf8\'});renderSkills()" class="mt-2 text-xs text-primary-400 hover:text-primary-300"><i class="fas fa-plus mr-1"></i> Add Skill</button></div>';
     });
   }
-  window.addSkillCategory = function() { data.skills.push({title:'New Category',icon:'fas fa-star',items:[{name:'Skill',level:80}]}); renderSkills(); };
+  window.addSkillCategory = function() { data.skills.push({title:'New Category',icon:'fas fa-star',items:[{name:'Skill',level:80,icon:'fas fa-star',color:'#818cf8'}]}); renderSkills(); };
 
   function renderExperience() {
     var c = document.getElementById('experience-list');

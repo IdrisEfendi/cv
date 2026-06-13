@@ -118,7 +118,11 @@
           cat.items.forEach(function (s, si) {
             if (items[si]) {
               var spans = items[si].querySelectorAll('span');
-              if (spans[0]) setText(spans[0], s.name);
+              if (spans[0]) {
+                // Render icon + name
+                var iconHtml = s.icon ? '<i class="' + s.icon + ' mr-2" style="color:' + (s.color||'#818cf8') + ';font-size:0.9em"></i>' : '';
+                spans[0].innerHTML = iconHtml + s.name;
+              }
               if (spans[1]) setText(spans[1], s.level + '%');
               var bar = items[si].querySelector('.skill-bar');
               if (bar) setAttr(bar, 'data-width', s.level);

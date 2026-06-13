@@ -54,60 +54,60 @@
       "title": "Frontend Development",
       "icon": "fas fa-code",
       "items": [
-        { "name": "HTML5 / CSS3", "level": 95 },
-        { "name": "JavaScript", "level": 85 },
-        { "name": "Tailwind CSS", "level": 90 },
-        { "name": "Vue.js", "level": 80 }
+        { "name": "HTML5 / CSS3", "level": 95, "icon": "fab fa-html5", "color": "#e44d26" },
+        { "name": "JavaScript", "level": 85, "icon": "fab fa-js-square", "color": "#f7df1e" },
+        { "name": "Tailwind CSS", "level": 90, "icon": "fas fa-wind", "color": "#38bdf8" },
+        { "name": "Vue.js", "level": 80, "icon": "fab fa-vuejs", "color": "#42b883" }
       ]
     },
     {
       "title": "Backend Development",
       "icon": "fas fa-server",
       "items": [
-        { "name": "PHP", "level": 95 },
-        { "name": "Laravel", "level": 92 },
-        { "name": "Python", "level": 88 },
-        { "name": "Node.js", "level": 75 }
+        { "name": "PHP", "level": 95, "icon": "fab fa-php", "color": "#777bb4" },
+        { "name": "Laravel", "level": 92, "icon": "fab fa-laravel", "color": "#ff2d20" },
+        { "name": "Python", "level": 88, "icon": "fab fa-python", "color": "#3776ab" },
+        { "name": "Node.js", "level": 75, "icon": "fab fa-node-js", "color": "#339933" }
       ]
     },
     {
       "title": "Database",
       "icon": "fas fa-database",
       "items": [
-        { "name": "MySQL", "level": 92 },
-        { "name": "PostgreSQL", "level": 80 },
-        { "name": "MongoDB", "level": 75 },
-        { "name": "Redis", "level": 70 }
+        { "name": "MySQL", "level": 92, "icon": "fas fa-database", "color": "#4479a1" },
+        { "name": "PostgreSQL", "level": 80, "icon": "fas fa-elephant", "color": "#336791" },
+        { "name": "MongoDB", "level": 75, "icon": "fas fa-leaf", "color": "#47a248" },
+        { "name": "Redis", "level": 70, "icon": "fas fa-bolt", "color": "#dc382d" }
       ]
     },
     {
       "title": "Automation",
       "icon": "fas fa-cogs",
       "items": [
-        { "name": "Selenium", "level": 85 },
-        { "name": "Cron Jobs", "level": 90 },
-        { "name": "Shell Script", "level": 82 },
-        { "name": "API Integration", "level": 88 }
+        { "name": "Selenium", "level": 85, "icon": "fas fa-cogs", "color": "#43b02a" },
+        { "name": "Cron Jobs", "level": 90, "icon": "fas fa-clock", "color": "#818cf8" },
+        { "name": "Shell Script", "level": 82, "icon": "fas fa-terminal", "color": "#4eaa25" },
+        { "name": "API Integration", "level": 88, "icon": "fas fa-plug", "color": "#f59e0b" }
       ]
     },
     {
       "title": "AI Tools",
       "icon": "fas fa-robot",
       "items": [
-        { "name": "OpenAI API", "level": 85 },
-        { "name": "LangChain", "level": 75 },
-        { "name": "ChatGPT Integration", "level": 88 },
-        { "name": "ML Basics", "level": 65 }
+        { "name": "OpenAI API", "level": 85, "icon": "fas fa-brain", "color": "#10a37f" },
+        { "name": "LangChain", "level": 75, "icon": "fas fa-link", "color": "#6366f1" },
+        { "name": "ChatGPT Integration", "level": 88, "icon": "fas fa-comment-dots", "color": "#10a37f" },
+        { "name": "ML Basics", "level": 65, "icon": "fas fa-chart-line", "color": "#ff6f61" }
       ]
     },
     {
       "title": "DevOps",
       "icon": "fas fa-cloud",
       "items": [
-        { "name": "Git / GitHub", "level": 90 },
-        { "name": "Docker", "level": 75 },
-        { "name": "Linux / Nginx", "level": 85 },
-        { "name": "CI/CD", "level": 72 }
+        { "name": "Git / GitHub", "level": 90, "icon": "fab fa-github", "color": "#e4e8eb" },
+        { "name": "Docker", "level": 75, "icon": "fab fa-docker", "color": "#2496ed" },
+        { "name": "Linux / Nginx", "level": 85, "icon": "fab fa-linux", "color": "#fcc624" },
+        { "name": "CI/CD", "level": 72, "icon": "fas fa-sync-alt", "color": "#818cf8" }
       ]
     }
   ],
