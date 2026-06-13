@@ -246,7 +246,7 @@
       }
 
       var subject = document.getElementById('subject').value || 'Portfolio Contact';
-      var body = 'Hi John Doe,%0D%0A%0D%0AName: ' + name + '%0AEmail: ' + email + '%0A%0A' + message;
+      var body = 'Hi,%0D%0A%0D%0AName: ' + name + '%0AEmail: ' + email + '%0A%0A' + message;
       window.location.href = 'mailto:john@example.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
 
       contactForm.reset();
@@ -306,11 +306,23 @@
   // ---- Smooth Scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      var target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+  });
+
+  // ---- Image Error Fallback ----
+  document.querySelectorAll('img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      this.style.display = 'none';
+      var placeholder = document.createElement('div');
+      placeholder.className = this.className;
+      placeholder.style.cssText = 'background:linear-gradient(135deg,#1e1e2e,#312e81);display:flex;align-items:center;justify-content:center;color:#6366f1;font-size:2rem;';
+      placeholder.innerHTML = '<i class="fas fa-image"></i>';
+      if (this.parentNode) this.parentNode.replaceChild(placeholder, this);
     });
   });
 

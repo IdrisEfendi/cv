@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://idrisefendi.github.io/cv/sitemap.xml
