@@ -1,243 +1,488 @@
 {
-  "profile": {
-    "name": "Idris Efendi",
-    "initials": "IE",
-    "title": "Full Stack Developer & Automation Engineer",
-    "tagline": "I build efficient, scalable web applications and intelligent automation systems. Passionate about clean code, AI integration, and delivering impactful digital solutions.",
-    "statusText": "Available for work",
-    "profileImage": "assets/images/profile.svg",
-    "aboutImage": "assets/images/about.svg",
-    "cvFile": "assets/cv/cv.pdf",
-    "email": "idrisefendi171@gmail.com",
-    "phone": "6285807180219",
-    "whatsapp": "+62 858-0718-0219",
-    "socials": {
-      "github": "https://github.com/IdrisEfendi",
-      "linkedin": "https://linkedin.com/in/idrisefendi",
-      "instagram": "https://instagram.com/idrisefendi",
-      "whatsapp": "https://wa.me/6281234567890"
-    }
-  },
-  "seo": {
-    "title": "Idris Efendi — Full Stack Developer & Automation Engineer",
-    "description": "Portfolio dan CV Idris Efendi — Full Stack Developer, Automation Engineer, dan AI Enthusiast. Lihat project, skill, dan pengalaman kerja.",
-    "ogImage": "assets/images/profile.jpg",
-    "jsonLd": {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Idris Efendi",
-      "jobTitle": "Full Stack Developer & Automation Engineer",
-      "sameAs": [
-        "https://github.com/idrisefendi",
-        "https://linkedin.com/in/idrisefendi",
-        "https://instagram.com/idrisefendi"
-      ],
-      "knowsAbout": ["PHP", "Laravel", "Python", "JavaScript", "MySQL", "Docker"]
-    }
-  },
-  "about": {
-    "headline": "A passionate developer who loves building things",
-    "description": [
-      "I'm a Full Stack Developer based in Indonesia with expertise in building modern web applications, REST APIs, and automation systems. I specialize in PHP (Laravel), Python, JavaScript, and AI-powered tools. My goal is to create efficient, scalable, and user-friendly digital solutions.",
-      "With over 5 years of experience in software development, I've worked with startups and enterprises to deliver impactful products. I'm passionate about continuous learning and staying updated with the latest technologies."
+    "profile": {
+        "name": "Idris Efendi",
+        "initials": "IE",
+        "title": "Full Stack Developer & Automation Engineer",
+        "tagline": "I build efficient, scalable web applications and intelligent automation systems. Passionate about clean code, AI integration, and delivering impactful digital solutions.",
+        "statusText": "Available for work",
+        "profileImage": "assets/images/profile.svg",
+        "aboutImage": "assets/images/about.svg",
+        "cvFile": "assets/cv/cv.pdf",
+        "email": "idrisefendi171@gmail.com",
+        "phone": "6285807180219",
+        "whatsapp": "+62 858-0718-0219",
+        "socials": {
+            "github": "https://github.com/IdrisEfendi",
+            "linkedin": "https://linkedin.com/in/idrisefendi",
+            "instagram": "https://instagram.com/idrisefendi",
+            "whatsapp": "https://wa.me/6281234567890"
+        }
+    },
+    "seo": {
+        "title": "Idris Efendi — Full Stack Developer & Automation Engineer",
+        "description": "Portfolio dan CV Idris Efendi — Full Stack Developer, Automation Engineer, dan AI Enthusiast. Lihat project, skill, dan pengalaman kerja.",
+        "ogImage": "assets/images/profile.jpg",
+        "jsonLd": {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Idris Efendi",
+            "jobTitle": "Full Stack Developer & Automation Engineer",
+            "sameAs": [
+                "https://github.com/idrisefendi",
+                "https://linkedin.com/in/idrisefendi",
+                "https://instagram.com/idrisefendi"
+            ],
+            "knowsAbout": [
+                "PHP",
+                "Laravel",
+                "Python",
+                "JavaScript",
+                "MySQL",
+                "Docker"
+            ]
+        }
+    },
+    "about": {
+        "headline": "A passionate developer who loves building things",
+        "description": [
+            "I'm a Full Stack Developer based in Indonesia with expertise in building modern web applications, REST APIs, and automation systems. I specialize in PHP (Laravel), Python, JavaScript, and AI-powered tools. My goal is to create efficient, scalable, and user-friendly digital solutions.",
+            "With over 5 years of experience in software development, I've worked with startups and enterprises to deliver impactful products. I'm passionate about continuous learning and staying updated with the latest technologies."
+        ],
+        "yearsExperience": 5,
+        "features": [
+            {
+                "icon": "fas fa-code",
+                "title": "Clean Code",
+                "desc": "Maintainable & readable"
+            },
+            {
+                "icon": "fas fa-rocket",
+                "title": "Fast Delivery",
+                "desc": "On-time & quality"
+            },
+            {
+                "icon": "fas fa-mobile-alt",
+                "title": "Responsive",
+                "desc": "Mobile-first design"
+            },
+            {
+                "icon": "fas fa-brain",
+                "title": "AI Integration",
+                "desc": "Smart solutions"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "title": "Frontend Development",
+            "icon": "fas fa-code",
+            "items": [
+                {
+                    "name": "HTML5 / CSS3",
+                    "level": 95,
+                    "icon": "fab fa-html5",
+                    "color": "#e44d26"
+                },
+                {
+                    "name": "JavaScript",
+                    "level": 85,
+                    "icon": "fab fa-js-square",
+                    "color": "#f7df1e"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "level": 90,
+                    "icon": "fas fa-wind",
+                    "color": "#38bdf8"
+                },
+                {
+                    "name": "Vue.js",
+                    "level": 80,
+                    "icon": "fab fa-vuejs",
+                    "color": "#42b883"
+                }
+            ]
+        },
+        {
+            "title": "Backend Development",
+            "icon": "fas fa-server",
+            "items": [
+                {
+                    "name": "PHP",
+                    "level": 95,
+                    "icon": "fab fa-php",
+                    "color": "#777bb4"
+                },
+                {
+                    "name": "Laravel",
+                    "level": 92,
+                    "icon": "fab fa-laravel",
+                    "color": "#ff2d20"
+                },
+                {
+                    "name": "Python",
+                    "level": 88,
+                    "icon": "fab fa-python",
+                    "color": "#3776ab"
+                },
+                {
+                    "name": "Node.js",
+                    "level": 75,
+                    "icon": "fab fa-node-js",
+                    "color": "#339933"
+                }
+            ]
+        },
+        {
+            "title": "Database",
+            "icon": "fas fa-database",
+            "items": [
+                {
+                    "name": "MySQL",
+                    "level": 92,
+                    "icon": "fas fa-database",
+                    "color": "#4479a1"
+                },
+                {
+                    "name": "PostgreSQL",
+                    "level": 80,
+                    "icon": "fas fa-elephant",
+                    "color": "#336791"
+                },
+                {
+                    "name": "MongoDB",
+                    "level": 75,
+                    "icon": "fas fa-leaf",
+                    "color": "#47a248"
+                },
+                {
+                    "name": "Redis",
+                    "level": 70,
+                    "icon": "fas fa-bolt",
+                    "color": "#dc382d"
+                }
+            ]
+        },
+        {
+            "title": "Automation",
+            "icon": "fas fa-cogs",
+            "items": [
+                {
+                    "name": "Selenium",
+                    "level": 85,
+                    "icon": "fas fa-cogs",
+                    "color": "#43b02a"
+                },
+                {
+                    "name": "Cron Jobs",
+                    "level": 90,
+                    "icon": "fas fa-clock",
+                    "color": "#818cf8"
+                },
+                {
+                    "name": "Shell Script",
+                    "level": 82,
+                    "icon": "fas fa-terminal",
+                    "color": "#4eaa25"
+                },
+                {
+                    "name": "API Integration",
+                    "level": 88,
+                    "icon": "fas fa-plug",
+                    "color": "#f59e0b"
+                }
+            ]
+        },
+        {
+            "title": "AI Tools",
+            "icon": "fas fa-robot",
+            "items": [
+                {
+                    "name": "OpenAI API",
+                    "level": 85,
+                    "icon": "fas fa-brain",
+                    "color": "#10a37f"
+                },
+                {
+                    "name": "LangChain",
+                    "level": 75,
+                    "icon": "fas fa-link",
+                    "color": "#6366f1"
+                },
+                {
+                    "name": "ChatGPT Integration",
+                    "level": 88,
+                    "icon": "fas fa-comment-dots",
+                    "color": "#10a37f"
+                },
+                {
+                    "name": "ML Basics",
+                    "level": 65,
+                    "icon": "fas fa-chart-line",
+                    "color": "#ff6f61"
+                }
+            ]
+        },
+        {
+            "title": "DevOps",
+            "icon": "fas fa-cloud",
+            "items": [
+                {
+                    "name": "Git / GitHub",
+                    "level": 90,
+                    "icon": "fab fa-github",
+                    "color": "#e4e8eb"
+                },
+                {
+                    "name": "Docker",
+                    "level": 75,
+                    "icon": "fab fa-docker",
+                    "color": "#2496ed"
+                },
+                {
+                    "name": "Linux / Nginx",
+                    "level": 85,
+                    "icon": "fab fa-linux",
+                    "color": "#fcc624"
+                },
+                {
+                    "name": "CI/CD",
+                    "level": 72,
+                    "icon": "fas fa-sync-alt",
+                    "color": "#818cf8"
+                }
+            ]
+        }
     ],
-    "yearsExperience": 5,
-    "features": [
-      { "icon": "fas fa-code", "title": "Clean Code", "desc": "Maintainable & readable" },
-      { "icon": "fas fa-rocket", "title": "Fast Delivery", "desc": "On-time & quality" },
-      { "icon": "fas fa-mobile-alt", "title": "Responsive", "desc": "Mobile-first design" },
-      { "icon": "fas fa-brain", "title": "AI Integration", "desc": "Smart solutions" }
-    ]
-  },
-  "skills": [
-    {
-      "title": "Frontend Development",
-      "icon": "fas fa-code",
-      "items": [
-        { "name": "HTML5 / CSS3", "level": 95, "icon": "fab fa-html5", "color": "#e44d26" },
-        { "name": "JavaScript", "level": 85, "icon": "fab fa-js-square", "color": "#f7df1e" },
-        { "name": "Tailwind CSS", "level": 90, "icon": "fas fa-wind", "color": "#38bdf8" },
-        { "name": "Vue.js", "level": 80, "icon": "fab fa-vuejs", "color": "#42b883" }
-      ]
+    "experience": [
+        {
+            "position": "Senior Full Stack Developer",
+            "company": "PT Tech Solutions Indonesia",
+            "period": "Jan 2023 — Present",
+            "description": "Lead development of enterprise web applications. Manage a team of 5 developers. Architected microservices infrastructure serving 100K+ users.",
+            "tech": [
+                "Laravel",
+                "Vue.js",
+                "Docker",
+                "Redis"
+            ],
+            "side": "left"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "PT Digital Nusantara",
+            "period": "Mar 2021 — Dec 2022",
+            "description": "Developed and maintained multiple client projects. Built RESTful APIs and integrated third-party services. Implemented CI/CD pipelines.",
+            "tech": [
+                "PHP",
+                "Laravel",
+                "MySQL",
+                "jQuery"
+            ],
+            "side": "right"
+        },
+        {
+            "position": "Junior Web Developer",
+            "company": "CV Creative Media",
+            "period": "Jun 2019 — Feb 2021",
+            "description": "Started career building WordPress and custom PHP websites. Learned agile methodologies and client communication skills.",
+            "tech": [
+                "WordPress",
+                "PHP",
+                "Bootstrap"
+            ],
+            "side": "left"
+        }
+    ],
+    "portfolio": [
+        {
+            "title": "Sistem Pendukung Keputusan Metode AHP",
+            "description": "Aplikasi Sistem Pendukung Keputusan (SPK) berbasis metode Analytical Hierarchy Process (AHP) untuk membantu pengambilan keputusan multikriteria dengan perhitungan bobot, matriks perbandingan, uji konsistensi, dan ranking alternatif secara otomatis.",
+            "image": "assets/projects/spk-ahp.png",
+            "category": "web",
+            "tech": [
+                "Laravel",
+                "Tailwind CSS",
+                "MySQL"
+            ],
+            "demo": "#",
+            "github": "https://github.com/IdrisEfendi/spk-ahp"
+        },
+        {
+            "title": "AI Customer Service Bot",
+            "description": "Intelligent chatbot using OpenAI API with context memory, multi-language support, and sentiment analysis.",
+            "image": "assets/projects/project2.svg",
+            "category": "ai",
+            "tech": [
+                "Python",
+                "OpenAI",
+                "FastAPI"
+            ],
+            "demo": "#",
+            "github": "#"
+        },
+        {
+            "title": "Automated Web Scraper",
+            "description": "Multi-source data scraping tool with scheduled runs, data cleaning pipeline, and export to CSV/JSON.",
+            "image": "assets/projects/project3.svg",
+            "category": "automation",
+            "tech": [
+                "Python",
+                "Selenium",
+                "PostgreSQL"
+            ],
+            "demo": "#",
+            "github": "#"
+        },
+        {
+            "title": "Analytics Dashboard",
+            "description": "Real-time analytics dashboard with interactive charts, data filtering, and automated report generation.",
+            "image": "assets/projects/project4.svg",
+            "category": "web",
+            "tech": [
+                "Laravel",
+                "Chart.js",
+                "Redis"
+            ],
+            "demo": "#",
+            "github": "#"
+        },
+        {
+            "title": "Layanan RESTful API",
+            "description": "Platform RESTful API yang dirancang untuk developer dan bisnis. Dilengkapi autentikasi JWT, manajemen API Key, rate limiting, caching menggunakan Redis, monitoring performa, serta dokumentasi Swagger/OpenAPI yang lengkap untuk memudahkan integrasi dan pengembangan aplikasi.",
+            "image": "assets/projects/restful-api-service.png",
+            "category": "backend",
+            "tech": [
+                "Laravel",
+                "MySQL",
+                "Redis",
+                "Docker",
+                "JWT",
+                "Swagger/OpenAPI"
+            ],
+            "demo": "#",
+            "github": "#"
+        },
+        {
+            "title": "This Portfolio Website",
+            "description": "Modern, responsive portfolio built with vanilla HTML/CSS/JS and Tailwind CSS. Zero dependencies, instant load.",
+            "image": "assets/projects/project6.svg",
+            "category": "personal",
+            "tech": [
+                "HTML5",
+                "Tailwind",
+                "JavaScript"
+            ],
+            "demo": "#",
+            "github": "#"
+        }
+    ],
+    "statistics": [
+        {
+            "icon": "fas fa-briefcase",
+            "target": 5,
+            "suffix": "+",
+            "label": "Years Experience"
+        },
+        {
+            "icon": "fas fa-project-diagram",
+            "target": 50,
+            "suffix": "+",
+            "label": "Projects Completed"
+        },
+        {
+            "icon": "fas fa-users",
+            "target": 30,
+            "suffix": "+",
+            "label": "Happy Clients"
+        },
+        {
+            "icon": "fas fa-tools",
+            "target": 25,
+            "suffix": "+",
+            "label": "Technologies"
+        }
+    ],
+    "certificates": [
+        {
+            "title": "AWS Certified Developer",
+            "issuer": "Amazon Web Services",
+            "year": "2024",
+            "color": "yellow",
+            "link": "#"
+        },
+        {
+            "title": "Google Cloud Professional",
+            "issuer": "Google",
+            "year": "2023",
+            "color": "blue",
+            "link": "#"
+        },
+        {
+            "title": "Laravel Certification",
+            "issuer": "Laravel / Laravel Daily",
+            "year": "2023",
+            "color": "green",
+            "link": "#"
+        },
+        {
+            "title": "Python for Data Science",
+            "issuer": "Coursera / IBM",
+            "year": "2022",
+            "color": "purple",
+            "link": "#"
+        },
+        {
+            "title": "Docker Fundamentals",
+            "issuer": "Docker Inc.",
+            "year": "2022",
+            "color": "red",
+            "link": "#"
+        },
+        {
+            "title": "Machine Learning Specialization",
+            "issuer": "Coursera / Stanford",
+            "year": "2024",
+            "color": "orange",
+            "link": "#"
+        }
+    ],
+    "testimonials": [
+        {
+            "name": "Sarah Johnson",
+            "role": "CEO, TechStart Inc.",
+            "image": "assets/images/client1.svg",
+            "text": "John delivered our e-commerce platform ahead of schedule. His attention to detail and technical skills are outstanding. Highly recommended for any web development project."
+        },
+        {
+            "name": "Michael Chen",
+            "role": "CTO, DataFlow Systems",
+            "image": "assets/images/client2.svg",
+            "text": "Working with John was a great experience. He built an AI chatbot that handles 80% of our customer inquiries. His automation skills saved us countless hours."
+        },
+        {
+            "name": "Emily Rodriguez",
+            "role": "Product Manager, AppWorks",
+            "image": "assets/images/client3.svg",
+            "text": "John's API development is top-notch. Clean code, excellent documentation, and reliable performance. He's become our go-to developer for backend work."
+        }
+    ],
+    "contact": {
+        "headline": "Let's work together",
+        "description": "Have a project in mind or want to discuss an opportunity? I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.",
+        "email": "john@example.com",
+        "whatsapp": "+62 812-3456-7890",
+        "github": "github.com/idrisefendi",
+        "linkedin": "linkedin.com/in/idrisefendi",
+        "instagram": "@idrisefendi"
     },
-    {
-      "title": "Backend Development",
-      "icon": "fas fa-server",
-      "items": [
-        { "name": "PHP", "level": 95, "icon": "fab fa-php", "color": "#777bb4" },
-        { "name": "Laravel", "level": 92, "icon": "fab fa-laravel", "color": "#ff2d20" },
-        { "name": "Python", "level": 88, "icon": "fab fa-python", "color": "#3776ab" },
-        { "name": "Node.js", "level": 75, "icon": "fab fa-node-js", "color": "#339933" }
-      ]
-    },
-    {
-      "title": "Database",
-      "icon": "fas fa-database",
-      "items": [
-        { "name": "MySQL", "level": 92, "icon": "fas fa-database", "color": "#4479a1" },
-        { "name": "PostgreSQL", "level": 80, "icon": "fas fa-elephant", "color": "#336791" },
-        { "name": "MongoDB", "level": 75, "icon": "fas fa-leaf", "color": "#47a248" },
-        { "name": "Redis", "level": 70, "icon": "fas fa-bolt", "color": "#dc382d" }
-      ]
-    },
-    {
-      "title": "Automation",
-      "icon": "fas fa-cogs",
-      "items": [
-        { "name": "Selenium", "level": 85, "icon": "fas fa-cogs", "color": "#43b02a" },
-        { "name": "Cron Jobs", "level": 90, "icon": "fas fa-clock", "color": "#818cf8" },
-        { "name": "Shell Script", "level": 82, "icon": "fas fa-terminal", "color": "#4eaa25" },
-        { "name": "API Integration", "level": 88, "icon": "fas fa-plug", "color": "#f59e0b" }
-      ]
-    },
-    {
-      "title": "AI Tools",
-      "icon": "fas fa-robot",
-      "items": [
-        { "name": "OpenAI API", "level": 85, "icon": "fas fa-brain", "color": "#10a37f" },
-        { "name": "LangChain", "level": 75, "icon": "fas fa-link", "color": "#6366f1" },
-        { "name": "ChatGPT Integration", "level": 88, "icon": "fas fa-comment-dots", "color": "#10a37f" },
-        { "name": "ML Basics", "level": 65, "icon": "fas fa-chart-line", "color": "#ff6f61" }
-      ]
-    },
-    {
-      "title": "DevOps",
-      "icon": "fas fa-cloud",
-      "items": [
-        { "name": "Git / GitHub", "level": 90, "icon": "fab fa-github", "color": "#e4e8eb" },
-        { "name": "Docker", "level": 75, "icon": "fab fa-docker", "color": "#2496ed" },
-        { "name": "Linux / Nginx", "level": 85, "icon": "fab fa-linux", "color": "#fcc624" },
-        { "name": "CI/CD", "level": 72, "icon": "fas fa-sync-alt", "color": "#818cf8" }
-      ]
+    "footer": {
+        "tagline": "Full Stack Developer & Automation Engineer building efficient digital solutions.",
+        "services": [
+            "Web Development",
+            "API Development",
+            "Automation",
+            "AI Integration"
+        ]
     }
-  ],
-  "experience": [
-    {
-      "position": "Senior Full Stack Developer",
-      "company": "PT Tech Solutions Indonesia",
-      "period": "Jan 2023 — Present",
-      "description": "Lead development of enterprise web applications. Manage a team of 5 developers. Architected microservices infrastructure serving 100K+ users.",
-      "tech": ["Laravel", "Vue.js", "Docker", "Redis"],
-      "side": "left"
-    },
-    {
-      "position": "Full Stack Developer",
-      "company": "PT Digital Nusantara",
-      "period": "Mar 2021 — Dec 2022",
-      "description": "Developed and maintained multiple client projects. Built RESTful APIs and integrated third-party services. Implemented CI/CD pipelines.",
-      "tech": ["PHP", "Laravel", "MySQL", "jQuery"],
-      "side": "right"
-    },
-    {
-      "position": "Junior Web Developer",
-      "company": "CV Creative Media",
-      "period": "Jun 2019 — Feb 2021",
-      "description": "Started career building WordPress and custom PHP websites. Learned agile methodologies and client communication skills.",
-      "tech": ["WordPress", "PHP", "Bootstrap"],
-      "side": "left"
-    }
-  ],
-  "portfolio": [
-    {
-      "title": "E-Commerce Platform",
-      "description": "Full-featured e-commerce with payment gateway, admin dashboard, and real-time inventory management.",
-      "image": "assets/projects/project1.svg",
-      "category": "web",
-      "tech": ["Laravel", "Vue.js", "MySQL"],
-      "demo": "#",
-      "github": "#"
-    },
-    {
-      "title": "AI Customer Service Bot",
-      "description": "Intelligent chatbot using OpenAI API with context memory, multi-language support, and sentiment analysis.",
-      "image": "assets/projects/project2.svg",
-      "category": "ai",
-      "tech": ["Python", "OpenAI", "FastAPI"],
-      "demo": "#",
-      "github": "#"
-    },
-    {
-      "title": "Automated Web Scraper",
-      "description": "Multi-source data scraping tool with scheduled runs, data cleaning pipeline, and export to CSV/JSON.",
-      "image": "assets/projects/project3.svg",
-      "category": "automation",
-      "tech": ["Python", "Selenium", "PostgreSQL"],
-      "demo": "#",
-      "github": "#"
-    },
-    {
-      "title": "Analytics Dashboard",
-      "description": "Real-time analytics dashboard with interactive charts, data filtering, and automated report generation.",
-      "image": "assets/projects/project4.svg",
-      "category": "web",
-      "tech": ["Laravel", "Chart.js", "Redis"],
-      "demo": "#",
-      "github": "#"
-    },
-    {
-      "title": "RESTful API Service",
-      "description": "Scalable API microservice with JWT auth, rate limiting, caching, and comprehensive Swagger documentation.",
-      "image": "assets/projects/project5.svg",
-      "category": "backend",
-      "tech": ["Laravel", "MySQL", "Docker"],
-      "demo": "#",
-      "github": "#"
-    },
-    {
-      "title": "This Portfolio Website",
-      "description": "Modern, responsive portfolio built with vanilla HTML/CSS/JS and Tailwind CSS. Zero dependencies, instant load.",
-      "image": "assets/projects/project6.svg",
-      "category": "personal",
-      "tech": ["HTML5", "Tailwind", "JavaScript"],
-      "demo": "#",
-      "github": "#"
-    }
-  ],
-  "statistics": [
-    { "icon": "fas fa-briefcase", "target": 5, "suffix": "+", "label": "Years Experience" },
-    { "icon": "fas fa-project-diagram", "target": 50, "suffix": "+", "label": "Projects Completed" },
-    { "icon": "fas fa-users", "target": 30, "suffix": "+", "label": "Happy Clients" },
-    { "icon": "fas fa-tools", "target": 25, "suffix": "+", "label": "Technologies" }
-  ],
-  "certificates": [
-    { "title": "AWS Certified Developer", "issuer": "Amazon Web Services", "year": "2024", "color": "yellow", "link": "#" },
-    { "title": "Google Cloud Professional", "issuer": "Google", "year": "2023", "color": "blue", "link": "#" },
-    { "title": "Laravel Certification", "issuer": "Laravel / Laravel Daily", "year": "2023", "color": "green", "link": "#" },
-    { "title": "Python for Data Science", "issuer": "Coursera / IBM", "year": "2022", "color": "purple", "link": "#" },
-    { "title": "Docker Fundamentals", "issuer": "Docker Inc.", "year": "2022", "color": "red", "link": "#" },
-    { "title": "Machine Learning Specialization", "issuer": "Coursera / Stanford", "year": "2024", "color": "orange", "link": "#" }
-  ],
-  "testimonials": [
-    {
-      "name": "Sarah Johnson",
-      "role": "CEO, TechStart Inc.",
-      "image": "assets/images/client1.svg",
-      "text": "John delivered our e-commerce platform ahead of schedule. His attention to detail and technical skills are outstanding. Highly recommended for any web development project."
-    },
-    {
-      "name": "Michael Chen",
-      "role": "CTO, DataFlow Systems",
-      "image": "assets/images/client2.svg",
-      "text": "Working with John was a great experience. He built an AI chatbot that handles 80% of our customer inquiries. His automation skills saved us countless hours."
-    },
-    {
-      "name": "Emily Rodriguez",
-      "role": "Product Manager, AppWorks",
-      "image": "assets/images/client3.svg",
-      "text": "John's API development is top-notch. Clean code, excellent documentation, and reliable performance. He's become our go-to developer for backend work."
-    }
-  ],
-  "contact": {
-    "headline": "Let's work together",
-    "description": "Have a project in mind or want to discuss an opportunity? I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.",
-    "email": "john@example.com",
-    "whatsapp": "+62 812-3456-7890",
-    "github": "github.com/idrisefendi",
-    "linkedin": "linkedin.com/in/idrisefendi",
-    "instagram": "@idrisefendi"
-  },
-  "footer": {
-    "tagline": "Full Stack Developer & Automation Engineer building efficient digital solutions.",
-    "services": ["Web Development", "API Development", "Automation", "AI Integration"]
-  }
 }
